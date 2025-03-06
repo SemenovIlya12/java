@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Форма заполнения заказа</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Форма заполнения заказа</h1>
+<form th:action="@{/orders/save}" th:object="${order}" method="post">
+    <input type="hidden" th:field="*{orderId}"/>
+    <label>Заказчик:</label>
+    <select th:field="*{customer}">
+        <option th:each="customer : ${customers}"
+                th:value="${customer.customerId}"
+                th:text="${customer.firstName + ' ' + customer.lastName}"></option>
+    </select><br>
+    <label>Статус:</label>
+    <select th:field="*{status}">
+        <option th:each="status : ${statuses}"
+                th:value="${status.statusId}"
+                th:text="${status.statusName}"></option>
+    </select><br>
+    <button type="submit">Сохранить</button>
+</form>
+<a href="/orders">Вернуться к списку заказов</a>
+</body>
+</html>

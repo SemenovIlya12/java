@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Музыкальный онлайн-магазин</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .links a {
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+            width: 200px;
+        }
+        .links a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Добро пожаловать на страницу управления</h1>
+<div class="links">
+    <a href="/products">Управление товарами</a>
+    <a href="/categories">Управление категориями</a>
+    <a href="/customers">Управление заказчиками</a>
+    <a href="/orders">управление заказами</a>
+    <a href="/order-items">Управление товарами заказов</a>
+</div>
+</body>
+</html>

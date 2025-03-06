@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Товары входящие в заказ</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Товары входящие в заказ #<span th:text="${orderId}"></span></h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Товар</th>
+        <th>Количество</th>
+        <th>Цена/шт</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="orderItem : ${orderItems}">
+        <td th:text="${orderItem.orderItemId}"></td>
+        <td th:text="${orderItem.product.name}"></td>
+        <td th:text="${orderItem.quantity}"></td>
+        <td th:text="${orderItem.price}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/orders}">Вернуться к заказам</a>
+</body>
+</html>

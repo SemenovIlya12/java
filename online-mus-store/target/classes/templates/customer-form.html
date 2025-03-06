@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Форма добавления заказчика</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Форма добавления заказчика</h1>
+<form th:action="@{/customers/save}" th:object="${customer}" method="post">
+    <input type="hidden" th:field="*{customerId}"/>
+    <label>Имя:</label>
+    <input type="text" th:field="*{firstName}" required/><br>
+    <label>Фамилия:</label>
+    <input type="text" th:field="*{lastName}" required/><br>
+    <label>Электронная почта:</label>
+    <input type="email" th:field="*{email}" required/><br>
+    <label>Номер телефона:</label>
+    <input type="text" th:field="*{phone}"/><br>
+    <button type="submit">Сохранить</button>
+</form>
+<a href="/customers">Вернуться к списку заказчиков</a>
+</body>
+</html>

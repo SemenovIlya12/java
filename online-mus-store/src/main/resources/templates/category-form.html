@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Форма добавления категории</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Форма добавления категории</h1>
+<form th:action="@{/categories/save}" th:object="${category}" method="post">
+    <input type="hidden" th:field="*{categoryId}"/>
+    <label>Имя:</label>
+    <input type="text" th:field="*{categoryName}" required/><br>
+    <label>Описание:</label>
+    <textarea th:field="*{description}"></textarea><br>
+    <label>Parent ID:</label>
+    <input type="number" th:field="*{parentId}"/><br>
+    <label>Дата создания:</label>
+    <input type="datetime-local" th:field="*{createdAt}"/><br>
+    <button type="submit">Save</button>
+</form>
+<a href="/categories">Вернуться к списку категорий</a>
+</body>
+</html>

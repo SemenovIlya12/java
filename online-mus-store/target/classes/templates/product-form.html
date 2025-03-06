@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Форма создания товара</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Форма создания товара</h1>
+<form th:action="@{/products/save}" th:object="${product}" method="post">
+    <input type="hidden" th:field="*{productId}"/>
+    <label>Имя:</label>
+    <input type="text" th:field="*{name}" required/><br>
+    <label>Описание:</label>
+    <textarea th:field="*{description}"></textarea><br>
+    <label>Цена:</label>
+    <input type="number" th:field="*{price}" step="0.01" required/><br>
+    <label>Категория:</label>
+    <select th:field="*{category}">
+        <option th:each="category : ${categories}"
+                th:value="${category.categoryId}"
+                th:text="${category.categoryName}"></option>
+    </select><br>
+    <button type="submit">Сохранить</button>
+</form>
+<a href="/products">Вернуться к списку товаров</a>
+</body>
+</html>

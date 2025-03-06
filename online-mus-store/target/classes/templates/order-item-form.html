@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Форма добавления товара в заказ</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Форма добавления товара в заказ</h1>
+<form th:action="@{/order-items/save}" th:object="${orderItem}" method="post">
+    <input type="hidden" th:field="*{orderItemId}"/>
+    <label>Заказ:</label>
+    <select th:field="*{order}">
+        <option th:each="order : ${orders}"
+                th:value="${order.orderId}"
+                th:text="'Order #' + ${order.orderId} + ' - ' + ${order.customer.firstName} + ' ' + ${order.customer.lastName}"></option>
+    </select><br>
+    <label>Товар:</label>
+    <select th:field="*{product}">
+        <option th:each="product : ${products}"
+                th:value="${product.productId}"
+                th:text="${product.name}"></option>
+    </select><br>
+    <label>Количество:</label>
+    <input type="number" th:field="*{quantity}" required/><br>
+    <button type="submit">Сохранить</button>
+</form>
+<a href="/order-items">Вернуться к списку товаров в заказах</a>
+</body>
+</html>
