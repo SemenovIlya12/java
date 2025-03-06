@@ -1,0 +1,8 @@
+Anya:5
+Dmitry:5
+Whoisit?:
+NoNumber
+GalaxyDestroyer:3
+Vasya:4
+Petya:3
+Rasmussen:7
